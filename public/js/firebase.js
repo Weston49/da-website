@@ -31,60 +31,55 @@ try {
 
 //!====================END of firebase connection====================!//
 
-//!====================START of Authentication services==============!//
+//!====================START of Authentication setup==============!//
 firebase.initializeApp(firebaseConfig);
 
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
-setTimeout(function(){
-    if(firebase.auth().currentUser == null){
-        ui.start('#firebaseui-auth-container', {
-            signInOptions: [{
-                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                requireDisplayName: true
-            }]
-        });
 
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
-                },
-                uiShown: function() {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'https://variety-gaming.web.app/index.html',
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                //firebase.auth.PhoneAuthProvider.PROVIDER_ID
-            ],
-            // Terms of service url.
-            tosUrl: 'https://variety-gaming.web.app/index.html',
-            // Privacy policy url.
-            privacyPolicyUrl: 'https://variety-gaming.web.app/index.html'
-        };
-        
-        // The start method will wait until the DOM is loaded.
+ui.start('#firebaseui-auth-container', {
+    signInOptions: [{
+        provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        requireDisplayName: true
+    }]
+});
 
-        ui.start('#firebaseui-auth-container', uiConfig);
-    }else{
-        document.getElementById("firebaseui-auth-container").style = "display:none";
-        document.getElementById("loader").style = "display:none";
-    }
-}, 2000);
+var uiConfig = {
+    callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+            // User successfully signed in.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+        },
+        uiShown: function() {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+        }
+    },
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    signInFlow: 'popup',
+    signInSuccessUrl: 'https://variety-gaming.web.app/index.html',
+    signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+    ],
+    // Terms of service url.
+    tosUrl: 'https://variety-gaming.web.app/index.html',
+    // Privacy policy url.
+    privacyPolicyUrl: 'https://variety-gaming.web.app/index.html'
+};
+
+// The start method will wait until the DOM is loaded.
+
+ui.start('#firebaseui-auth-container', uiConfig);
+
 
 setPersistence(auth, browserSessionPersistence)
   .then(() => {
@@ -114,6 +109,4 @@ onAuthStateChanged(auth, (user) => {
       // ...
     }
 });
-
-
-//!====================END of Authentication services================!//
+//!====================END of Authentication setup================!//
