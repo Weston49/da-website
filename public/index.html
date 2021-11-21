@@ -18,17 +18,29 @@
 
   <script type="module" src="js/firebase.js"></script>
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/parallax.css">
 </head>
 
 <body>
-  <div id="content">
-    <p id="load">Firebase SDK Loading&hellip;</p>
-    <button onclick="location.replace('login.html')">Login</button>
-  </div>
-  
-
-  <div class="footer">
-    <p>Weston Agreda 2021</p>
+  <div class="parallax">
+    <div class="parallax__group">
+      <div class="parallax__layer parallax__layer--back" style="background-image: url('images/Starfield.png');"></div>
+      <div class="parallax__layer parallax__layer--base">
+        <div id="content">
+          <button onclick="location.replace('login.html')">Login</button>
+          <p id="load">Firebase SDK Loading&hellip;</p>
+        </div>
+        <div id="content2">
+          <p>second content box</p>
+        </div>
+        <div id="content2">
+          <p>second content box</p>
+        </div>
+        <div id="content2">
+          <p>second content box</p>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 

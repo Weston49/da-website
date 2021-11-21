@@ -1,11 +1,14 @@
 .pallet{
     color:#0C0032, #190061, #240090, #3500D3, #282828;
 }
+
 html, body{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color:black;
+    margin:0;
 }
+
 body{
-    background-color: black;
     color:white;
 }
 
@@ -23,20 +26,23 @@ button{
     padding:6px;
 }
 
-#content { 
+#content, #content2 { 
     background: #190061; 
     max-width: 360px; 
     margin: 100px auto 16px; 
     padding: 32px 24px; 
     text-align: center;
+    position:relative;
 }
 
-.footer{
-    position: fixed;
-    left:0;
-    bottom:0;
+#content2{
+    margin-top:500px;
+}
+
+footer{
     width:100%;
     text-align: center;
     font-style: italic;
     font-size: 10px;
+    margin-bottom: 20px;
 }
