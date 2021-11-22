@@ -17,28 +17,28 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
 
   <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/index.js"></script>
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/parallax.css">
 </head>
 
-<body>
+<body style="overflow-y: hidden;">
   <div class="parallax">
     <div class="parallax__group">
       <div class="parallax__layer parallax__layer--back" style="background-image: url('images/Starfield.png');"></div>
       <div class="parallax__layer parallax__layer--base">
         <div id="content">
+          <h2>Account</h2>
           <button onclick="location.replace('login.html')">Login</button>
           <p id="load">Firebase SDK Loading&hellip;</p>
+          <p id="username"></p>
         </div>
         <div id="content2">
-          <p>second content box</p>
+          <h2>Cookie Clicker</h2>
+          <button id="clicker" onclick="clicked()">cookie</button>
+          <p id="scoreCount">Score</p>
         </div>
-        <div id="content2">
-          <p>second content box</p>
-        </div>
-        <div id="content2">
-          <p>second content box</p>
-        </div>
+        
       </div>
     </div>
   </div>
