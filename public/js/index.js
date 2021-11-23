@@ -1,4 +1,5 @@
 import { addScore } from "./firebase.js";
+import { makePurchase } from "./firebase.js";
 
 function clicked(){
     addScore(1);
@@ -8,6 +9,11 @@ function cooldownClicked(){
     //for now does nothing
 }
 
+function buyItem(cost, itemID){
+    makePurchase(cost, itemID);
+}
+
+window.buyItem = buyItem;
 window.cooldownClicked = cooldownClicked;
 window.clicked = clicked;
 
@@ -73,3 +79,7 @@ function animateArt(size){
 }
 
 window.animateArt = animateArt;
+
+
+
+

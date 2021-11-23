@@ -26,6 +26,10 @@ button{
     padding:6px;
 }
 
+button:hover{
+    background-color: #464646;
+}
+
 .content{ 
     background: #190061; 
     max-width: 360px; 
@@ -39,6 +43,15 @@ button{
 
 .box2{
     margin-top:250px;
+}
+
+.box2 table{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.box2 td:hover{
+    color:red;
 }
 
 .box3{
