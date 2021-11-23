@@ -27,21 +27,34 @@
     <div class="parallax__group">
       <div class="parallax__layer parallax__layer--back" style="background-image: url('images/Starfield.png');"></div>
       <div class="parallax__layer parallax__layer--base">
-        <div id="content">
+        <div class="content box1">
           <h2>Account</h2>
+          <h4 id="username">Login to save progress</h4>
           <button onclick="location.replace('login.html')">Login</button>
           <p id="load">Firebase SDK Loading&hellip;</p>
-          <p id="username"></p>
         </div>
-        <div id="content2">
+        <div class="content box2">
           <h2>Cookie Clicker</h2>
           <button id="clicker" onclick="clicked()">cookie</button>
           <p id="scoreCount">Score</p>
         </div>
-        
+        <div class="content box3">
+          <h2>Future game here ignore this</h2>
+          <input type="number" id="num">
+          <button onclick="generateArt(document.getElementById('num').value)">generate thing</button>
+          <button onclick="animateArt(document.getElementById('num').value)">animate thing</button>
+          <table id="tbl">
+
+          </table>
+        </div>
       </div>
     </div>
   </div>
+  <script>  
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }; 
+  </script>
 </body>
 
 </html>

@@ -144,6 +144,7 @@ setTimeout(function(){
 
 //!=====================THE GAME STUFF============================!//
 var data;
+var canclick = true;
 function updateScore(d){
     data = d;
     document.getElementById("scoreCount").innerHTML = d;
@@ -158,6 +159,7 @@ function cookieCooldown(){
             document.getElementById("clicker").innerHTML = "1";
             setTimeout(function(){
                 document.getElementById("clicker").onclick = function(){clicked()};
+                canclick = true;
                 document.getElementById("clicker").innerHTML = "cookie";
             }, 1000);
         }, 1000);
@@ -165,27 +167,35 @@ function cookieCooldown(){
 }
 
 export function addScore(amount){
-    var newScore = data + amount;
-    set(ref(db, 'player_data/' + u.uid), {
-      username: u.displayName,
-      score: newScore
-    })
-    .then(() => {
-        cookieCooldown();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    if (canclick == true){
+        canclick = false;
+        var newScore = data + amount;
+        set(ref(db, 'player_data/' + u.uid), {
+        username: u.displayName,
+        score: newScore
+        })
+        .then(() => {
+            cookieCooldown();
+        })
+        .catch((error) => {
+        console.log(error);
+        });
+    }
 }
 
-setTimeout(function(){
-    const score = ref(db, 'player_data/' + u.uid + '/score');
-    onValue(score, (snapshot) => {
-    const data = snapshot.val();
-    updateScore(data);
-    });
-}, 900);
 
+setTimeout(function(){
+    try{
+        const score = ref(db, 'player_data/' + u.uid + '/score');
+            onValue(score, (snapshot) => {
+            const data = snapshot.val();
+            updateScore(data);
+        });
+    }catch(e){
+        console.log(e);
+    }
+
+}, 900);
 
 
 

@@ -26,17 +26,28 @@ button{
     padding:6px;
 }
 
-#content, #content2 { 
+.content{ 
     background: #190061; 
     max-width: 360px; 
-    margin: 100px auto 16px; 
+    margin-left: auto;
+    margin-right:auto; 
+    margin-top:100px;
     padding: 32px 24px; 
     text-align: center;
     position:relative;
 }
 
-#content2{
+.box2{
     margin-top:250px;
+}
+
+.box3{
+    margin-top: 500px;
+}
+
+.box3 table{
+    margin-left:auto;
+    margin-right:auto;
 }
 
 footer{
